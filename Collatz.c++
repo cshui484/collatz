@@ -34,8 +34,36 @@ pair<int, int> collatz_read (const string& s) {
 // ------------
 
 int collatz_eval (int i, int j) {
-    // <your code>
-    return 1;}
+	int max_cl = 1;
+	int n, cl, tmp;
+	int max_ix;
+
+	if (i > j) {
+		tmp = j;
+		j = i;
+		i = tmp;
+	}
+	for (int ix=i; ix<=j; ix++) {
+		n = ix;
+		cl = 1;
+		while (n != 1) {
+			if (n % 2 == 0) {
+				n /= 2;
+			} else {
+				n = 3*n + 1;
+			}
+			cl++;
+			
+//printf("%d %d %d\n", ix, n, cl);			
+		}
+		if (cl > max_cl) {
+			max_cl = cl;  
+			max_ix = ix;
+		}
+	}
+//	printf ("return %d %d\n", max_ix, max_cl);
+	return max_cl;
+}
 
 // -------------
 // collatz_print
