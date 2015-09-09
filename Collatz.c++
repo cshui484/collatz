@@ -43,7 +43,7 @@ int collatz_eval (int i, int j) {
 		j = i;
 		i = tmp;
 	}
-	for (int ix=j; ix<=i; ix--) {
+	for (int ix=j; ix>=i; ix--) {
 		n = ix;
 		cl = 1;
 		while (n != 1) {
